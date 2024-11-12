@@ -19,7 +19,7 @@ const generateAlert2 = function () {
   const alert = document.createElement("div");
   alert.className = "alert alert-info";
   alert.role = "alert";
-  alert.innerText = "Elemento rimosso con successo";
+  alert.innerText = "Elemento rimosso";
 
   alertDiv.appendChild(alert);
 };
@@ -60,16 +60,43 @@ window.addEventListener("DOMContentLoaded", function () {
     const h1 = document.querySelector("h1");
     h1.innerText = `Ciao ${input}!`;
     console.log(h1.innerText);
-
-    clearBtn.onclick = function (e) {
-      e.preventDefault();
-
-      removeName();
-    };
   };
+
   const inputFromStorage = localStorage.getItem("input-inserito");
   if (inputFromStorage) {
     const h1 = document.querySelector("h1");
     h1.innerText = `Ciao ${inputFromStorage}!`;
   }
+
+  clearBtn.onclick = function (e) {
+    e.preventDefault();
+
+    removeName();
+  };
 });
+
+const reset = function () {
+  // Rimuovi eventuali alert
+  const alertDiv = document.getElementById("alert");
+  const existingAlert = alertDiv.querySelector(".alert");
+  if (existingAlert) {
+    alertDiv.removeChild(existingAlert);
+  }
+};
+setInterval(reset, 5000);
+
+/* Counter */
+
+const counter = document.getElementById("counter");
+
+let counterValue = sessionStorage.getItem("counter")
+  ? parseInt(sessionStorage.getItem("counter"))
+  : 0;
+
+const updateCounter = function () {
+  counterValue++;
+  counter.innerText = counterValue;
+  sessionStorage.setItem("counter", counterValue);
+};
+
+setInterval(updateCounter, 1000);
