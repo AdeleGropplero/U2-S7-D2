@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>U2 S7 D2</title>
   </head>
-  <body>
+  <body style="margin: 100px">
     <h1>Dicci come ti chiami</h1>
     <form id="form">
       <label for="nome">Nome:</label>
       <input
+        id="inputName"
         type="text"
         placeholder="Scrivi qui il tuo nome"
         aria-label="Nome"
         required
       />
+      <button id="save">Save</button>
+      <button id="clear">Clear memory</button>
     </form>
+    <div
+      style="
+        margin: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      "
+    >
+      <label for="timer">timer:</label>
+      <p id="counter">0</p>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
