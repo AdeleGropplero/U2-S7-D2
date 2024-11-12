@@ -73,6 +73,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
     removeName();
   };
+
+  counter.innerText = counterValue;
 });
 
 const reset = function () {
@@ -86,7 +88,6 @@ const reset = function () {
 setInterval(reset, 5000);
 
 /* Counter */
-
 const counter = document.getElementById("counter");
 
 let counterValue = sessionStorage.getItem("counter")
